@@ -88,7 +88,7 @@ Finally, compute distance, reassign data points according to the new centroids w
 
     * Color
         * Original:
-![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/parrt-vancouver.jpg)
+        ![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/parrt-vancouver.jpg)
         * Kmeans++ copresion:
 ![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/color_km.jpg)
 
