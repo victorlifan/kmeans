@@ -11,53 +11,56 @@ Kmeans from A to Z
 	3. [Applications](#app)
 	4. [Advanced topic: RF + Kmeans](#rf+km)
 	5. [Limitations](#mf)
-
-3. [Dataset](#Dataset)
-4. [Summary of Project](#summary)
-5. [Files](#About)
-6. [Software used](#Software)
+3. [References](#ref)
 
 
 <a name="description"></a>
 ## Description
-Imagine you are working on the data team for a popular digital music service similar to Spotify or Pandora. Many users stream their favorite songs to your service every day, either using the free tier that place advertisements between the songs or using the premium subscription model, where they stream music ad free but pay a monthly flat rate.
-
-<img src='ima/1.png' width=800px>
-
-It's your job on the data team to predict which users are at risk to churn, either downgrading from premium to free tier or cancelling their service altogether. If you can accurately identify these users before they leave, your business can offer them discounts and incentives, potentially saving your business millions in revenue.
-
-To tackle this project, you will need to load, explore, and clean this dataset with Spark. Based on your explanation, you will create features and build models with Spark to predict which users will churn from your digital music service.
+For this project, I implemented the Kmeans as well as the kmeans++ algorithm from scratch. I used five data sets to showcase some applications and results of those algorithms. Further, after uncovering the drawbacks of Kmeans, I implemented a ‘Spectral clustering’ using the random forest (RF) technique paired with kmeans++ to overcome the ‘discontinuity of clusters’ issue. Lastly, I addressed some limitations and possible improvements for future research reference.
 
 
 <a name="Workflow"></a>
 ## Workflow:
-<a name="etl"></a>
-##### 1. ELT Pipeline
-Load large datasets into Spark and manipulate them using Spark SQL and Spark Dataframes. Columns have been modified:
+<a name="km"></a>
+##### 1. Kmeans
+> Procedure:
 
-* userAgent
-* userId
-* location
-* Churn
+1. Initialize centroids꞉
+Randomly initialize k number of data points from the original X data. The number of k depends on how many clusters we want to end up with.
 
-<a name="eda"></a>
-##### 2. Exploratory Data Analysis
-Performing some exploratory data analysis to observe the behavior for users who stayed vs users who churned. Examples:
+2. Compute distance꞉
+Here I used Euclidean distance to measure the distance from each of the remaining data points to each of the centroids we initialized in step 1, assigning each of the remaining data points to the ‘closest ’ centroids.
 
-* Churn rate vs gender
-* Churn rate by location
-* Churn status vs avg songs displayed
-* Time series analysis
+3. Update centroids꞉
+Within each cluster, compute the average distance of all the data points to that centroid FEATURE WISE. This average distance will be the new centroids’ ‘coordinate’ in that cluster. Intuitively speaking, this means we are correcting the centroids to be the ‘center’ of that cluster. This means our final centroids will most likely not be members of the dataset. The reason we picked data points from the dataset as initial centroids is simply to assign a starting point.
 
-**...**
+4. Reassign data point
+Finally, compute distance, reassign data points according to the new centroids we updated in step 3, update centroids. Iterate the above process until the centroids’ ‘coordinates’ don’t change any more.
 
-<a name="eeg"></a>
-##### 3. Feature Engineering
-Building out the features we find promising to train the model on.
-> categorical features
-  * gender
-  * location
-  * OS
+ISSUES:
+> Each rounds’ initial centroids are different due to the mechanism of random initialization. This goes without saying, but the algorithm produces slightly different final centroids, labels, and clusters. The good news is all the final norms are 0, which means those clusters make perfect sense in each of their own round’s ‘world’.
+
+
+<a name="km+"></a>
+##### 2. Kmeans ++
+
+> Procedure:
+
+1. Initialize centroids꞉
+Randomly initialize k number of data points from the original X data. The number of k depends on how many clusters we want to end up with.
+2. Compute distance꞉
+Here I used Euclidean distance to measure the distance from each of the remaining data points to each of the centroids we initialized in step 1, assigning each of the remaining data points to the ‘closest ’ centroids.
+3. Update centroids꞉
+Within each cluster, compute the average distance of all the data points to that centroid FEATURE WISE. This average distance will be the new centroids’ ‘coordinate’ in that cluster. Intuitively speaking, this means we are correcting the centroids to be the ‘center’ of that cluster. This means our final centroids will most likely not be members of the dataset. The reason we picked data points from the dataset as initial centroids is simply to assign a starting point.
+
+4. Reassign data point
+Finally, compute distance, reassign data points according to the new centroids we updated in step 3, update centroids. Iterate the above process until the centroids’ ‘coordinates’ don’t change any more.
+
+<a name="app"></a>
+##### 3. Applications
+> Synthetic data set
+
+![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/1.png)
 
 > numerical features
 * Num of distinct artist
