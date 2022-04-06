@@ -12,7 +12,8 @@ Kmeans from A to Z
 	4. [Advanced topic: RF + Kmeans](#rf+km)
 	5. [Limitations](#mf)
 3. [Dataset](#Dataset)
-4. [References](#ref)
+4. [About](#About)
+5. [References](#ref)
 
 <a name="description"></a>
 ## Description
@@ -125,7 +126,7 @@ Finally, compute distance, reassign data points according to the new centroids w
 
 
 <a name="About"></a>
-## Files In The Repository
+## About
 + [`Jupyter Notebook file`](https://github.com/victorlifan/kmeans/blob/main/kmeans.ipynb): workspace where I performed and tested the works.
 + [`kmeans.py`](https://github.com/victorlifan/kmeans/blob/main/kmeans.py): modularized support functions
 * [`kmeans.pdf`](https://github.com/victorlifan/kmeans/blob/main/kmeans.pdf): pdf presentation
