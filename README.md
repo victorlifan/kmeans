@@ -58,17 +58,29 @@ Finally, compute distance, reassign data points according to the new centroids w
 
 <a name="app"></a>
 ##### 3. Applications
-> Synthetic data set
+*  Synthetic data set
 
 ![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/1.png)
 
-> numerical features
-* Num of distinct artist
-* Total length
-* Num of songs played
-* Num of 404 status received
-* Customer lifetime
-* page count
+* Multi-dimension data (Circle data 500*2)
+
+![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/multi1.png)
+![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/multi2.png)
+
+> As you can see, Kmeans performs poorly on disjointed and nested structures. To rescue, I will introduce spectral clustering by using RF and Kmeans together in the Advanced topic section.
+
+* Breast cancer
+
+    * Without scaling X꞉
+
+![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/bc1.png)
+
+    * With scaled X
+![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/bc2.png)
+
+* Image compression
+    * Grayscale
+     
 
 > vectors assemble and feature normalization
 * 1 userId column
