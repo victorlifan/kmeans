@@ -11,9 +11,8 @@ Kmeans from A to Z
 	3. [Applications](#app)
 	4. [Advanced topic: RF + Kmeans](#rf+km)
 	5. [Limitations](#mf)
-3. [References](#ref)
-4. [Dataset](#Dataset)
-
+3. [Dataset](#Dataset)
+4. [References](#ref)
 
 <a name="description"></a>
 ## Description
@@ -90,7 +89,7 @@ Finally, compute distance, reassign data points according to the new centroids w
         * Original:
 ![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/parrt-vancouver.jpg)
         * Kmeans++ copresion:
-[alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/color_km.jpg)
+![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/color_km.jpg)
 
 <a name="rf+km"></a>
 ##### 4. Advanced topic: RF + Kmeans
@@ -105,7 +104,7 @@ Finally, compute distance, reassign data points according to the new centroids w
 
 > Test on circle data (sklearn vs. RF+Kmeans)
 
-[alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/vs.png)
+![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/vs.png)
 
 <a name='mf'></a>
 ##### 5. Limitations
@@ -127,27 +126,29 @@ Finally, compute distance, reassign data points according to the new centroids w
 
 <a name="About"></a>
 ## Files In The Repository
-+ [`Jupyter Notebook file`](https://github.com/victorlifan/Sparkify--Pyspark-Big-Data-Project/blob/master/Sparkify.ipynb): workspace where I performed the works.
-+ [`data_zip`](https://github.com/victorlifan/Sparkify--Pyspark-Big-Data-Project/tree/master/data_zip): a folder contains dataset zip files
-+ [`ima`](https://github.com/victorlifan/Sparkify--Pyspark-Big-Data-Project/tree/master/ima): png files were displayed in READMEs
++ [`Jupyter Notebook file`](https://github.com/victorlifan/kmeans/blob/main/kmeans.ipynb): workspace where I performed and tested the works.
++ [`kmeans.py`](https://github.com/victorlifan/kmeans/blob/main/kmeans.py): modularized support functions
+* [`kmeans.pdf`](https://github.com/victorlifan/kmeans/blob/main/kmeans.pdf): pdf presentation
++ [`img`](https://github.com/victorlifan/kmeans/tree/main/img): png files were used in this project.
 
 <a name="Software"></a>
 ## Software used
 + Jupyter Notebook
 + Atom
-+ Python 3.7
-> + Numpy
-> + Pandas
-> + Matplotlib
-> * Seaborn
-+ Spark 3.0
->* Pyspark SQL
->* Pyspark ML
++ Python 3.9
+>   * Numpy
+    * Pandas
+    * Matplotlib
+    * Seaborn
+    * sklearn
+    * statistics
+    * PIL
+    * tqdm
 
 
-
-## Credits
-* [How to Install and Run PySpark in Jupyter Notebook on Windows](https://changhsinlee.com/install-pyspark-windows-jupyter/#comment-4302741820)
-* [Feature Selection Using Feature Importance Score - Creating a PySpark Estimator](https://www.timlrx.com/2018/06/19/feature-selection-using-feature-importance-score-creating-a-pyspark-estimator/)
-+ Data provided by: [DATA SCIENTIST NANODEGREE PROGRAM](https://www.udacity.com/course/data-scientist-nanodegree--nd025)
-+ Instruction and assist: [DATA SCIENTIST NANODEGREE PROGRAM](https://www.udacity.com/course/data-scientist-nanodegree--nd025)
+<a name="ref"></a>
+## References
+* [K-Means Clustering: From A to Z](https://towardsdatascience.com/k-means-clustering-from-a-to-z-f6242a314e9a)
+* [ML | K-means++ Algorithm](https://www.geeksforgeeks.org/ml-k-means-algorithm/)
+* [Image Segmentation using K Means Clustering](https://www.geeksforgeeks.org/image-segmentation-using-k-means-clustering/)
+* [Breiman's website](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm#prox)
