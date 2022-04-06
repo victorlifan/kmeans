@@ -138,13 +138,13 @@ Finally, compute distance, reassign data points according to the new centroids w
 + Atom
 + Python 3.9
 >   * Numpy
-    * Pandas
-    * Matplotlib
-    * Seaborn
-    * sklearn
-    * statistics
-    * PIL
-    * tqdm
+>   * Pandas
+>   * Matplotlib
+>   * Seaborn
+>   * sklearn
+>   * statistics
+>   * PIL
+>   * tqdm
 
 
 <a name="ref"></a>
