@@ -12,6 +12,7 @@ Kmeans from A to Z
 	4. [Advanced topic: RF + Kmeans](#rf+km)
 	5. [Limitations](#mf)
 3. [References](#ref)
+4. [Dataset](#Dataset)
 
 
 <a name="description"></a>
@@ -100,54 +101,29 @@ Finally, compute distance, reassign data points according to the new centroids w
 
 2. Construct frequency (similarity) matrix
 
-3. Feed similarity matrix to SpectralClustering꞉ 
-Split the full dataset into train, test, and validation sets. Test out several of the machine learning methods. Evaluate the accuracy of the various models, tuning parameters as necessary. Determine the winning model based on test accuracy and report results on the validation set.
+3. Feed similarity matrix to SpectralClustering
 
-> Initial model selection
-* Random Forest
-* GBT
-* LinearSVC
+> Test on circle data (sklearn vs. RF+Kmeans)
 
->Hyperparameter tune (GBT)
-* maxDepth
-* maxIter
+[alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/vs.png)
 
->Feature importance
+<a name='mf'></a>
+##### 5. Limitations
+* Randomness in RF will sometimes result in unexpected cluster labels (accuracy is not as steady).
 
-<a name='drm'></a>
-##### 5. Dimension reduction
-The original dataframe `final_df` has 83 features, we can see from the  `Weights for top 10 most predictive features` plot that 10 features already carry well over 60% of weights. Futhermore, `fp` dataframe shows 30 features carry over 98% of weights.
-
-Reducing dimension to top 30 features will be cheaper in terms of time consume and computing power while model still remains promising output.
-
-<img src="ima/fimp.png" alt="Dot Product" width="800">
+* Kmeans++ only considers picking the furthest point to its previous centroid. Take k=3 as an example, as a consequence, the 1st and 3rd controls can sometimes be quite close to each other. Is there a way to consider all the previous centroids and pick the furthest point from all the previous centroids? How do we even define the ‘minimum distance’ since each centroid has its own furthest points, one point can't be the furthest to multiple centroids?
 
 
 <a name="Dataset"></a>
 ## Dataset
 
-* `mini_sparkify_event_data.zip`: usage information details. Size: 10.2MB (due to file size limitation, zip file is uploaded)
-* `medium-sparkify-event-data.zip`: usage information details. For works performed on IBM Watson Studio. Size: 19.6MB (due to file size limitation, zip file is uploaded)
-* Full 12G data set is not included (For works performed on AWS)
+* `Synthetic data set`: A small synthetic data that has a shape of 16*1
+* `Multi-dimension data (Circle data 500*2)`: from sklearn.datasets.make_circles
+* `Breast cancer`: from sklearn.datasets.load_breast_cancer
+* `north-africa-1940s-grey` and `parrt-vancouver.jpg`: from Professor [Terence Parr](https://en.wikipedia.org/wiki/Terence_Parr)
 
 <a name="summary"></a>
-## Summary of Project
 
-1. Since the churned users are a fairly small subset, the data is imbalanced, using F1 score as the metric is the fair call.
-
-A quick summary of our initial models:
-
-* Random Forest F1 score 0.6410174880763115.
-* GBT F1 score 0.7456568331672422.
-* Linear SVC F1 score 0.625548726953468.
-
-2. Because GBT outperformed the other two models, I choose it as the base model. After tuning parameters the best model reached over 0.74 as f1 score. Parameters specification:
-* maxDepth: 5
-* maxIter: 10
-
-3. The feature reduced model takes less time to train and predict, it decreased time by 12.4% versus the full feature model. Surprisingly, the feature reduced model also increased f1 score by a small amount of 3.13%. This is a classic example of bias-variance tradeoff. More features yield a better performance on the training set, as it generalizes worse on the test set. In other words the full feature model might suffer from overfitting.
-
-<img src="ima/freduce.png" alt="Dot Product" height="200" width="500">
 
 <a name="About"></a>
 ## Files In The Repository
