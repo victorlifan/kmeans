@@ -80,7 +80,10 @@ Finally, compute distance, reassign data points according to the new centroids w
 
 * Image compression
     * Grayscale
-     
+    > Original:
+![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/north-africa-1940s-grey.png)
+    > Kmeans++ copresion:
+![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/gray_km.png)
 
 > vectors assemble and feature normalization
 * 1 userId column
