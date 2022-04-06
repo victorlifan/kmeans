@@ -87,10 +87,20 @@ Finally, compute distance, reassign data points according to the new centroids w
 
     * Color
         * Original:
-        ![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/parrt-vancouver.jpg)
+![alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/parrt-vancouver.jpg)
+        * Kmeans++ copresion:
+[alt test](https://raw.githubusercontent.com/victorlifan/kmeans/main/img/color_km.jpg)
 
-<a name="mol"></a>
-##### 4. Modeling
+<a name="rf+km"></a>
+##### 4. Advanced topic: RF + Kmeans
+
+> Procedure:
+
+1. RF ‘group’ similar data points.
+
+2. Construct frequency (similarity) matrix
+
+3. Feed similarity matrix to SpectralClustering꞉ 
 Split the full dataset into train, test, and validation sets. Test out several of the machine learning methods. Evaluate the accuracy of the various models, tuning parameters as necessary. Determine the winning model based on test accuracy and report results on the validation set.
 
 > Initial model selection
